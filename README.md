@@ -1,4 +1,4 @@
-# Kaleidoscope unnel
+# Kaleidoscope Tunnel
 Flite Test is doing a build video on the Kaleidoscope Tunnels that Jesse Perkins and I helped build for their Whoop Course at Edgewater Airpark. This GitHub is in support of that video.
 
 # Electronics Build
