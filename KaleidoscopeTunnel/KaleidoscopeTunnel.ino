@@ -81,8 +81,6 @@ CRGBPalette16 targetPalette(PartyColors_p);
 // Pattern Variables
 uint8_t gCurrentPatternNumber = 0; // Index number of which pattern is current
 uint8_t gHue = 0; // rotating "base color" used by many of the patterns
-int lastBrightness = 127;
-int actBrightness = 127;
 
 int hbState = HIGH;       // State of the Heartbeat LED
 
@@ -94,6 +92,7 @@ void setup() {
 
   // tell FastLED about the LED strip configuration
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+  FastLED.setBrightness(INIT_BRIGHTNESS);
 
   // Set the maximum power allowed for the string - (volts, milliamps)
   // For now, limit to 1.5A
@@ -112,12 +111,11 @@ void loop() {
   // toggle with every push of the button. If the LED is not toggling, the controller is hung.
   digitalWrite(HEARTBEATLED_PIN, hbState);
   
-  // do some periodic updates
-  EVERY_N_MILLISECONDS( 20 ) {
-    gHue++;  // slowly cycle the "base color" through the rainbow
-  }
-
   gPatterns[gCurrentPatternNumber]();
+
+  // do some periodic updates
+  EVERY_N_MILLISECONDS( 20 ) { gHue++; }  // slowly cycle the "base color" through the rainbow
+  EVERY_N_SECONDS( SECONDS_PER_PAT ) { nextPattern(); } // change patterns periodically
 
   // send the 'leds' array out to the actual LED strip
   FastLED.show();
@@ -365,14 +363,12 @@ void ConstantColorGreen () {
   }
 }
 
-//void ConstantColorRed (int PulseBrightness=NULL) {
 void ConstantColorRed () {
   for (int k = 0; k < NUM_LEDS; k++) {
     leds[k] = CRGB::Red;
   }
 }
 
-//void ConstantColorYellow (int PulseBrightness=NULL) {
 void ConstantColorYellow () {
   for (int k = 0; k < NUM_LEDS; k++) {
     leds[k] = CRGB::Yellow;
