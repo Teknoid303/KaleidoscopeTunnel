@@ -1,5 +1,5 @@
 # Kaleidoscope Tunnel
-Flite Test is doing a build video on the Kaleidoscope Tunnels that Jesse Perkins and I helped build for their Whoop Course at Edgewater Airpark. This GitHub is in support of that video.
+Flite Test is doing a build video on the Kaleidoscope Tunnels that Jesse Perkins and I helped build for their Whoop Course at Edgewater Airpark. This GitHub is in support of that video. You can find it [here](https://www.youtube.com/watch?v=tzvPqyesqjE).
 
 # New To GitHub?
 Since there will be many new users coming to the platform in search of this code, no fear, you only need a few things from here. (1) This document on electronic parts, links, and code modifications, and (2) the code itself. You've already found this document, and the code is downloaded by using the green button above that says "Clone or Download". Select "Download ZIP" and expand it in your arduino code or documents folder. The code is located in the "hyperDrive" folder. That's all you really need to get started.
